@@ -1,0 +1,60 @@
+<div class="row" ng-controller="FacebookCtrl">
+    <div class="col-md-4">
+      <h4>{{welcomeMsg}}</h4>
+      <div ng-if="isLoggedIn == true">
+        <a href="{{userInfo.link}}" target="_blank"><img class="profilePic" ng-src="{{picture}}"></a>
+      </div>
+      <div ng-if="isLoggedIn == false">
+        <button type="button" class="btn btn-primary" ng-click="login()">Login</button>
+      </div>
+      <div ng-if="isLoggedIn == true">
+        <button type="button" class="btn btn-warning" ng-click="logout()">Logout</button>
+      </div>
+      <br><br>
+      <div class="well" ng-if="isLoggedIn == true">
+        <h4>User Info</h4>
+        <ul>
+          <li>ID: {{userInfo.id}}</li>
+          <li>First {{userInfo.first_name}}</li>
+          <li>Last Name: {{userInfo.last_name}}</li>
+          <li>Email: {{userInfo.email}}</li>
+          <li>Gender: {{userInfo.gender}}</li>
+          <li>Locale: {{userInfo.locale}}</li>
+        </ul>
+      </div>
+      <br>
+      <div class="well" ng-if="isLoggedIn == true">
+        <h4>Permissions</h4>
+        <ul>
+          <li ng-repeat="permission in permissions">{{permission.permission}} - {{permission.status}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h3>Welcome to Facebook!</h3>
+      <div>
+        <form>
+          <div class="form-group">
+            <label>Status Update</label>
+            <textarea ng-model="body" class="form-control"></textarea>
+          </div>
+          <button type="button" ng-click="postStatus()" class="btn btn-success">Post</button>
+        </form>
+        <br><br>
+        <div class="stbody" ng-repeat="post in posts">
+          <div class="stimg">
+            <img ng-src="{{picture}}">
+          </div>
+          <div class="sttext">
+            {{post.message}}
+            <br>
+            {{post.story}}
+            <div class="sttime">{{post.created_time}}</div>
+          </div>
+        </div>
+      </div>
+      <div ng-if="isLoggedIn == false">
+        <h4>You must be logged in to post...</h4>
+      </div>
+    </div>
+  </div>
