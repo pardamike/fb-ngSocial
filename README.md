@@ -2,7 +2,7 @@
 
 Using the ng-facebook library we can post and retreive posts
 
-This is a simple app to give you the groundwork to your won Facebook posting app with Angular 1
+This is a simple app to give you the groundwork to your own Facebook posting app with Angular 1
 
 Also using Bootstrap and Bootswatch Flatly theme
 
