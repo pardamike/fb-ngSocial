@@ -1,4 +1,4 @@
-# Simple Angular 1 Facebook Posting App
+# Simple AngularJS Facebook Posting App
 
 Using the ng-facebook library we can post and retreive posts
 
